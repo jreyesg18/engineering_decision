@@ -14,7 +14,7 @@
 
           <% Area.all.each do |area| %>
             <li class="<%='active' if params[:area] ==area.name_area %>" >
-              <%= link_to area.name_area, careers_path(area: area.name_area) %>
+              <%= link_to area.name_area, careers_path(area: area.name_area), class: "link"  %>
             </li>
           <% end %>
 

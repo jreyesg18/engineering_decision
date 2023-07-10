@@ -1,6 +1,18 @@
-<%= simple_form_for @career do |f| %>
+<%= simple_form_for @career, :html => {:multipart =>true } do |f| %>
+  <% if @career.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@career.errors.count, "Errores") %> Antes de guardar: </h2>
+      <ul>
+        <% @career.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <%end%>
+      </ul>
+    </div>
+  <%end%>
+
+
   <%= f.input :name_career, label: "Nombre Cargo" %>
-  <%= collection_select(:area,:area_id,Area.all,:id,:name_area)%>
+  <%= select_tag(:area_id, options_for_select(@areas), :prompt => "Choose University Faculty ")%>
   <%= f.input :job_title %>
   <%= f.input :grade_title%>
   <%= f.input :duration%>

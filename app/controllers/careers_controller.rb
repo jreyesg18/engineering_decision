@@ -31,10 +31,11 @@ class CareersController < ApplicationController
   end
 
   def edit
-
+    @career = current_user.carrers.build
   end
 
   def update
+
     @career.area_id = params[:area_id]
 
     if @career.update(career_params)
@@ -57,6 +58,4 @@ class CareersController < ApplicationController
   def find_career
     @career = Career.find(params[:id])
   end
-
-
 end
