@@ -1,9 +1,18 @@
 
-<% @careers.each do |career| %>
-  <h2><%= link_to career.name_career, career_path(career) %></h2>
-  <h3><%= career.job_title %></h3>
-  <h3><%= career.grade_title %></h3>
-  <h3><%= career.graduate_profile %></h3>
-<% end %>
+<h1><%= params[:area] %></h1>
 
-<%= link_to "Add career", new_career_path  %>
+<%if @careers.count ==0 %>
+  <h3>No hay concurso</h3>
+<%else %>
+
+  <h2>Careers Engineering</h2>
+
+  <% @careers.each do |career| %>
+    <h2><%= link_to career.name_career, career_path(career) %></h2>
+    <h3><%= career.job_title %></h3>
+    <h3><%= career.grade_title %></h3>
+    <h3><%= career.graduate_profile %></h3>
+  <% end %>
+
+
+<% end %>

@@ -1,0 +1,19 @@
+<h1>University Faculty</h1>
+
+<table>
+  <body>
+  <% @areas.each do |area| %>
+    <tr>
+      <h4><%=" - " %><%= link_to area.name_area, area_path(area)  %></h4>
+    </tr>
+  <%end %>
+  </body>
+</table>
+
+<br>
+<%= link_to "Add faculty", new_area_path  %>
+<br>
+<br>
+<%= link_to "Back", root_path %>
+
+</div>

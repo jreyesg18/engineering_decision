@@ -1,5 +1,6 @@
 <%= simple_form_for @career do |f| %>
   <%= f.input :name_career, label: "Nombre Cargo" %>
+  <%= collection_select(:area,:area_id,Area.all,:id,:name_area)%>
   <%= f.input :job_title %>
   <%= f.input :grade_title%>
   <%= f.input :duration%>

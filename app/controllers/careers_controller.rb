@@ -2,7 +2,12 @@ class CareersController < ApplicationController
   before_action :find_career, only: [:show, :edit, :update, :destroy]
 
   def index
-    @careers = Career.all.order("created_at DESC")
+    if params[:area].blank?
+      @careers = Career.all.order("created_at DESC")
+    else
+      @area_id = Area.find_by(name_area: params[:area]).id
+      @careers = Career.where(:area_id => @area_id).order("created_at DESC")
+    end
   end
 
   def show
@@ -10,10 +15,13 @@ class CareersController < ApplicationController
 
   def new
     @career = Career.new
+    @areas = Area.all.map{|c| [c.name_area, c.id]}
   end
 
   def create
+    @areas = Area.all.map{|c| [c.name_area, c.id]}
     @career= Career.new(career_params)
+    @career.area_id = params[:area_id]
 
     if @career.save
       redirect_to root_path
@@ -27,6 +35,8 @@ class CareersController < ApplicationController
   end
 
   def update
+    @career.area_id = params[:area_id]
+
     if @career.update(career_params)
       redirect_to career_path(@career)
     else

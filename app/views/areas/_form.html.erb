@@ -1,0 +1,20 @@
+<%= simple_form_for @area, :html => {:multipart =>true } do |f| %>
+
+  <% if @area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@area.errors.count, "Error") %> Before saving </h2>
+
+      <ul>
+        <% @area.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <%end%>
+      </ul>
+    </div>
+  <%end%>
+
+  <%= f.input :name_area, label: "University faculty" %>
+  <%= f.button :submit,"Created Area"%>
+
+  <%= link_to "Back",  areas_path%>
+
+<%end%>
