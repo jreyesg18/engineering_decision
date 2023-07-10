@@ -4,6 +4,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
+    <%= f.input :username, label: "Username" %>
+    <%= f.input :name, label: "Name " %>
+    <%= f.input :lastname, label: "Lastname" %>
+    <%= f.input :identity_document, label: "identity_document: " %>
+
+
     <%= f.input :email,
                 required: true,
                 autofocus: true,

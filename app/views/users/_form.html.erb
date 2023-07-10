@@ -1,0 +1,46 @@
+<%= simple_form_for @user, :html => {:multipart =>true } do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "Error") %> Antes de guardar: </h2>
+
+      <ul>
+        <% @career.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <%end%>
+
+      </ul>
+    </div>
+  <%end%>
+
+  <h1>Editar Usuario</h1>
+
+  <h1><%= @user.email_com %></h1>
+
+  <%= f.input :username, label: "Userame"%>
+  <%= f.input :name, label: "Name"%>
+  <%= f.input :lastname, label: "Last name"%>
+  <%= f.input :identity_document, label: "identity_document"%>
+
+  <% if current_user.admin?%>
+    <%= f.input :admin, label: "Administrador"%>
+
+    <h2> <%= f.button :submit,"Modificar datos"%></h2>
+
+
+    <%= f.button :button do %>
+      <%= link_to "cancelar", users_path %>
+    <% end %>
+
+    <%= f.button :button do %>
+      <%= link_to "volver", users_path %>
+    <% end %>
+  <%else%>
+
+    <%= f.button :submit,"Modificar datos"%>
+    <%= f.button :button do %>
+      <%= link_to "cancelar", user_path %>
+    <% end %>
+  <%end%>
+
+<% end %>

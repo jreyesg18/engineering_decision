@@ -11,17 +11,33 @@
       <li class=" dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Areas <span class="caret"></span></a>
         <ul class ="dropdown-menu" role="menu">
-
           <% Area.all.each do |area| %>
             <li class="<%='active' if params[:area] ==area.name_area %>" >
               <%= link_to area.name_area, careers_path(area: area.name_area), class: "link"  %>
             </li>
           <% end %>
 
-          <li><%= link_to "Add Area", areas_path%></li>
+          <% if user_signed_in?%>
+            <% if current_user && current_user.admin %>
+              <li><%= link_to "Add Area", areas_path%></li>
+            <%end%>
+          <%end%>
         </ul>
       </li>
-      <li><%= link_to "Add Career", new_career_path %></li>
+
+      <% if user_signed_in?%>
+        <% if current_user.admin?%>
+          <li><%= link_to "users", users_path %></li>
+          <li><%= link_to "Add Career", new_career_path %></li>
+        <%end%>
+        <li><%= link_to current_user.email, user_path(current_user) %> </li>
+
+        <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
+      <%else%>
+        <li><%=link_to "Registrarse", new_user_registration_path %></li>
+        <li><%=link_to "Entrar", new_user_session_path %></li>
+      <%end%>
+
 
     </ul>
 

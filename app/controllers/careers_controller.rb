@@ -14,13 +14,15 @@ class CareersController < ApplicationController
   end
 
   def new
-    @career = Career.new
+    #@career = Career.new
+    @career = current_user.careers.build
     @areas = Area.all.map{|c| [c.name_area, c.id]}
   end
 
   def create
     @areas = Area.all.map{|c| [c.name_area, c.id]}
-    @career= Career.new(career_params)
+    #@career= Career.new(career_params)
+    @career = current_user.careers.build(career_params)
     @career.area_id = params[:area_id]
 
     if @career.save
