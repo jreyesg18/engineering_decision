@@ -1,0 +1,14 @@
+<%= simple_form_for @career do |f| %>
+  <%= f.input :name_career, label: "Nombre Cargo" %>
+  <%= f.input :job_title %>
+  <%= f.input :grade_title%>
+  <%= f.input :duration%>
+  <%= f.input :graduate_profile%>
+  <%= f.input :occupational_field%>
+
+  <%= f.button :submit %>
+
+  <%= link_to "volver", root_path %>
+
+
+<%end%>

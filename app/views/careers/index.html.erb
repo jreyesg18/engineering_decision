@@ -1,0 +1,9 @@
+
+<% @careers.each do |career| %>
+  <h2><%= link_to career.name_career, career_path(career) %></h2>
+  <h3><%= career.job_title %></h3>
+  <h3><%= career.grade_title %></h3>
+  <h3><%= career.graduate_profile %></h3>
+<% end %>
+
+<%= link_to "Add career", new_career_path  %>
