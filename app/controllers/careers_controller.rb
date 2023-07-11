@@ -33,13 +33,12 @@ class CareersController < ApplicationController
   end
 
   def edit
-    @career = current_user.carrers.build
+    @areas = Area.all.map{|c| [c.name_area, c.id]}
   end
 
   def update
 
     @career.area_id = params[:area_id]
-
     if @career.update(career_params)
       redirect_to career_path(@career)
     else

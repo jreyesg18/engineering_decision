@@ -16,7 +16,7 @@
 
 
   <%= f.input :name_career, label: "Nombre Cargo" %>
-  <%= f.select :area_id, @areas %>
+  <%= select_tag(:area_id, options_for_select(@areas), :prompt => "Selecciona Area del Cargo")%>
   <%= f.input :job_title %>
   <%= f.input :grade_title%>
   <%= f.input :duration%>
