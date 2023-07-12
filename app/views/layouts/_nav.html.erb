@@ -8,24 +8,23 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li class=" dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Areas <span class="caret"></span></a>
-        <ul class ="dropdown-menu" role="menu">
-          <% Area.all.each do |area| %>
-            <li class="<%='active' if params[:area] ==area.name_area %>" >
-              <%= link_to area.name_area, careers_path(area: area.name_area), class: "link"  %>
-            </li>
-          <% end %>
-
-          <% if user_signed_in?%>
-            <% if current_user && current_user.admin %>
-              <li><%= link_to "Add Area", areas_path%></li>
-            <%end%>
-          <%end%>
-        </ul>
-      </li>
-
       <% if user_signed_in?%>
+        <li class=" dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Areas <span class="caret"></span></a>
+          <ul class ="dropdown-menu" role="menu">
+            <% Area.all.each do |area| %>
+              <li class="<%='active' if params[:area] ==area.name_area %>" >
+                <%= link_to area.name_area, careers_path(area: area.name_area), class: "link"  %>
+              </li>
+            <% end %>
+
+            <% if user_signed_in?%>
+              <% if current_user && current_user.admin %>
+                <li><%= link_to "Add Area", areas_path%></li>
+              <%end%>
+            <%end%>
+          </ul>
+        </li>
         <% if current_user.admin?%>
           <li><%= link_to "users", users_path %></li>
           <li><%= link_to "Add Career", new_career_path %></li>

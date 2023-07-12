@@ -1,12 +1,14 @@
-<h1>Modicated Faculty</h1>
+<div class=" col-md-6 col-md-offset-3">
+  <h1>Modicated Faculty</h1>
 
-<%= simple_form_for @area, :html => {:multipart =>true } do |f| %>
+  <%= simple_form_for @area, :html => {:multipart =>true } do |f| %>
 
-  <%= f.input :name_area %>
-  <%= f.button :submit,"Modificated Faculty" %>
+    <%= f.input :name_area %>
+    <%= f.button :submit,"Modificated Faculty" %>
 
-  <%= f.button :button do %>
-    <%= link_to "Back", root_path %>
-  <% end %>
+    <%= f.button :button do %>
+      <%= link_to "Back", root_path %>
+    <% end %>
 
-<%end%>
+  <%end%>
+</div>

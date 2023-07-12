@@ -1,11 +1,15 @@
-<h2><%= @career.name_career %></h2>
-<h2><%= @career.area.name_area %></h2>
-<h3><%= @career.job_title %></h3>
-<h3><%= @career.grade_title %></h3>
-<h3><%= @career.duration %></h3>
-<h3><%= @career.graduate_profile%></h3>
-<h3><%= @career.occupational_field %></h3>
+<div class=" col-md-10 col-md-offset-1">
+    <h2><%= @career.name_career %></h2>
+    <h2>Facultad: <%= @career.area.name_area %></h2>
+    <h3>Job Title: <%= @career.job_title %></h3>
+    <h3>Grade Title: <%= @career.grade_title %></h3>
+    <h3>Duration: <%= @career.duration %> Semestre</h3>
+    <h3>Graduate Profile:</h3>
+  <%= @career.graduate_profile%>
+    <h3>Occupatonal Field:</h3>
+  <%= @career.occupational_field %>
 
-<%= link_to "volver", root_path %>
-<%= link_to "editar", edit_career_path(@career) %>
-<%= link_to "Eliminar", career_path(@career), method: :delete, data:{ confirm: "¿Estas seguro?"}%>
+    <%= link_to "Back", root_path %>
+    <%= link_to "edit", edit_career_path(@career) %>
+    <%= link_to "Delete", career_path(@career), method: :delete, data:{ confirm: "¿Estas seguro?"}%>
+</div>

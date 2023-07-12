@@ -1,18 +1,62 @@
 
+<div class=" col-md-10 col-md-offset-1">
+
+<% if user_signed_in?%>
+
 <h1><%= params[:area] %></h1>
 
-<%if @careers.count ==0 %>
-  <h3>No hay concurso</h3>
-<%else %>
+  <%if @careers.count ==0 %>
+    <h3> There is no publication </h3>
+  <%else %>
+    <h2>Careers Engineering</h2>
 
-  <h2>Careers Engineering</h2>
-
-  <% @careers.each do |career| %>
-    <h2><%= link_to career.name_career, career_path(career) %></h2>
-    <h3><%= career.job_title %></h3>
-    <h3><%= career.grade_title %></h3>
-    <h3><%= career.graduate_profile %></h3>
+    <% @careers.each do |career| %>
+      <h2><%= link_to career.name_career, career_path(career) %></h2>
+      <h3><%= career.job_title %></h3>
+      <h3><%= career.grade_title %></h3>
+      <h3><%= career.graduate_profile %></h3>
+    <% end %>
   <% end %>
+<%else%>
 
+  <h3>¿De qué se trata la Ingeniería?</h3>
+  <p>
+  Se trata de emplear todos los conocimientos científicos y tecnológicos para conversión de materiales y fuerzas de la naturaleza con el fin de inventar, desarrollar y mejorar las técnicas y herramientas para la resolución de problemas de todo tipo.
+  Saber de qué se trata la Ingeniería es clave para evaluar la amplia variedad de carreras disponibles en esta área del conocimiento.
+  </p>
+  <h3>¿Qué necesito saber para estudiar Ingeniería?</h3>
+  <p>
+  El interés y vocación por las ciencias exactas es la base. Esto, además de gran capacidad de análisis y síntesis de datos, liderazgo, sin olvidar las habilidades para innovar y trabajar en equipo. Tener claro esto es clave para saber qué estudiar, especialmente si se trata de alguna Ingeniería.
+  </p>
+  <h3>¿Qué tipos de Ingeniería hay para estudiar?</h3>
+  <p>
+  Ya sabes, a grandes rasgos, de qué se trata esta área del conocimiento, pero ¿qué tipos de Ingeniería hay para estudiar? Entre las principales, vale la pena destacar las siguientes:
+  </p>
+  <h3>Ingeniería Civil en Mecánica</h3>
+  <p>
+  Forma profesionales en el ámbito de mantenimiento industrial, diseño y selección de equipos, instalaciones industriales y proceso de fabricación de manufactura.
+  </p>
+  <h3>Ingeniería Civil en Computación</h3>
+  Se desarrolla en sistemas de información, telecomunicaciones, ciencias administrativas y económicas. Igualmente, servirá para desarrollar procesos en el área comercial, industrial, académico y de servicios.
+  </p>
+  <h3>Ingeniería en Geomensura</h3>
+  <p>
+  El egresado es capaz de resolver problemas de topografía, fotogrametría, geodesia y análisis espacio-territorial. Puede ejercer en consultoras de ingeniería o arquitectura, constructoras, mineras, forestales, agrícolas o geológicas.
+  </p>
+  <h3>Ingeniería Civil Electrónica</h3>
+  <p>
+  Forma profesionales con alto nivel tecnológico para gestionar, dirigir, diseñar y mantener sistemas electrónicos en empresas modernas.
+  </p>
+  <h3>Ingeniería Civil en Ciencia de Datos</h3>
+  <p>
+  El objetivo general es generar, transferir, aplicar y difundir el conocimiento científico y tecnológico. Se puede desempeñar como director de proyectos, consultor de sistemas en ambientes big data, planificador estratégico en sistema de computación y gestión de datos.
+  </p>
+  <h3>Ingeniería Industrial</h3>
+  <p>
+    El estudiante es capaz de desarrollarse en empresas que utilicen tecnología de punta. Se desenvuelve como especialista en productividad, proceso y planificación de actividades organizacionales en instituciones públicas o privadas.
+  Programa de bachillerato en Ciencias de la Ingeniería
+  Se trata de un programa que busca abrir oportunidades para quienes quieren seguir alguna Ingeniería, pero aún no se deciden del todo. El programa de bachillerato tiene una duración de 2 años e integra las bases necesarias para el futuro estudiante de Ingeniería.
+  </p>
 
 <% end %>
+</div>

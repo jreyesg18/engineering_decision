@@ -1,18 +1,17 @@
-<h1>Users#show</h1>
+<div class=" col-md-6 col-md-offset-3">
+    <h1>User Detail</h1>
 
-<h1>Detalle de Usuario</h1>
+    <h3>Email: <%= @user.email_com %></h3>
+    <h5>Name: <%= @user.name %></h5>
+    <h5>Last Name: <%= @user.lastname %></h5>
+    <h5>Username:  <%= @user.username %></h5>
+    <h5>identity_document: <%= @user.identity_document %></h5>
 
-<h1><%= @user.email_com %></h1>
-<h5>Name: <%= @user.name %></h5>
-<h5>Last Name: <%= @user.lastname %></h5>
-<h5>Username:  <%= @user.username %></h5>
-<h5>identity_document: <%= @user.identity_document %></h5>
-
-<% if current_user.admin?%>
-  <%= link_to "editar",edit_user_path(@user), class: 'btn-custom2' %>
-  <%= link_to "volver", users_path, class: 'btn-custom2' %>
-<%else%>
-  <%= link_to "editar",edit_user_path(current_user), class: 'btn-custom2' %>
-  <%= link_to "volver", root_path, class: 'btn-custom2' %>
-<%end%>
-<p>Find me in app/views/users/show.html.erb</p>
+    <% if current_user.admin?%>
+      <%= link_to "editar",edit_user_path(@user), class: 'btn-custom2' %>
+      <%= link_to "volver", users_path, class: 'btn-custom2' %>
+    <%else%>
+      <%= link_to "editar",edit_user_path(current_user), class: 'btn-custom2' %>
+      <%= link_to "volver", root_path, class: 'btn-custom2' %>
+    <%end%>
+</div>
